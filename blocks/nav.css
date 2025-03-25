@@ -1,0 +1,12 @@
+.nav {
+  width: 880px;
+  height: 74px;
+  margin: 0 200px 0;
+  padding-top: 40px;
+  border-bottom: 1px solid #545454;
+}
+
+.nav__logo {
+  width: 173px;
+  height: 33px;
+}

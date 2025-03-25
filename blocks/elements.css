@@ -1,0 +1,29 @@
+.elements {
+  width: 880px;
+  height: 743px;
+  padding: 50px 200px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 282px);
+  grid-template-rows: repeat(2, 361px);
+  gap: 17px;
+}
+
+.elements__card {
+  align-items: flex-end;
+  background-color: #ffffff;
+  border-radius: 15px;
+  color: #000000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.elements__text {
+  width: 246px;
+  height: 23px;
+  font-family: Inter;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
