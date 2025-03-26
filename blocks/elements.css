@@ -9,21 +9,36 @@
 }
 
 .elements__card {
-  align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: #ffffff;
   border-radius: 15px;
   color: #000000;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+}
+
+.elements__image {
+  width: 282px;
+  height: 282px;
+}
+
+.elements__description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 246px;
+  height: 23px;
 }
 
 .elements__text {
-  width: 246px;
-  height: 23px;
   font-family: Inter;
   font-weight: 900;
   font-size: 24px;
   line-height: 100%;
   letter-spacing: 0%;
+}
+
+.elements__like-button {
+  width: 21px;
+  height: 19px;
 }
