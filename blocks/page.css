@@ -1,8 +1,18 @@
 .page {
   max-width: 1280px;
-  height: 1217px;
+  min-height: 1217px;
   margin: auto;
   background-color: black;
   box-sizing: border-box;
   color: #ffffff;
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 544px) {
+  .page {
+    max-width: 320px;
+    min-height: 2814px;
+  }
 }

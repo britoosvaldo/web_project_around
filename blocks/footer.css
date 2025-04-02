@@ -9,3 +9,15 @@
   letter-spacing: 0%;
   color: #545454;
 }
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 544px) {
+  .footer {
+    width: 282px;
+    height: 14px;
+    padding: 50px 19px;
+    font-size: 14px;
+  }
+}

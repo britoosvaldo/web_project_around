@@ -41,4 +41,24 @@
 .elements__like-button {
   width: 21px;
   height: 19px;
+  cursor: pointer;
+}
+
+.elements__like-button:hover {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 544px) {
+  .elements {
+    width: 282px;
+    height: 2266px;
+    padding: 36px 19px 0;
+    display: grid;
+    grid-template-columns: 282px;
+    grid-template-rows: repeat(6, 361px);
+    gap: 17px;
+  }
 }

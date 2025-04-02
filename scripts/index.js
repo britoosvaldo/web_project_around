@@ -5,5 +5,5 @@ editButton.addEventListener("click", function () {
 
 const closeButton = document.querySelector(".popup__close-button");
 closeButton.addEventListener("click", function () {
-  document.querySelector(".popup").classList.add("popup__closed");
+  document.querySelector(".popup").classList.remove("popup__opened");
 });

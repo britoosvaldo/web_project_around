@@ -1,7 +1,7 @@
 .nav {
-  width: 880px;
-  height: 74px;
-  margin: 0 200px 0;
+  max-width: 880px;
+  min-height: 74px;
+  margin: 0 auto 0;
   padding-top: 40px;
   border-bottom: 1px solid #545454;
 }
@@ -9,4 +9,23 @@
 .nav__logo {
   width: 173px;
   height: 33px;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+  }
+}
+
+@media screen and (max-width: 544px) {
+  .nav {
+    max-width: 320px;
+    min-height: 56px;
+    padding-top: 28px;
+  }
+
+  .nav__logo {
+    width: 126px;
+    height: 24px;
+    margin-left: 27px;
+  }
 }
