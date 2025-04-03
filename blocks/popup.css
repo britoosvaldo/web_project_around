@@ -122,7 +122,7 @@
 
   .form__fieldset {
     width: 238px;
-    margin: 76px 0 46px 0;
+    margin: 76px auto 46px auto;
   }
 
   .form__input {

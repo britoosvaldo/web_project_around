@@ -48,6 +48,10 @@
   opacity: 0.5;
 }
 
+.elements__like-button__opened {
+  background-color: #000000;
+}
+
 @media screen and (max-width: 1024px) {
 }
 
