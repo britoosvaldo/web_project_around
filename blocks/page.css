@@ -8,6 +8,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .page {
+    min-height: 1400px;
+  }
 }
 
 @media screen and (max-width: 544px) {
