@@ -59,7 +59,7 @@
   letter-spacing: 0%;
 }
 
-.form__fieldset {
+.popup-form__fieldset {
   display: flex;
   flex-direction: column;
   justify-self: center;
@@ -68,7 +68,7 @@
   gap: 30px;
 }
 
-.form__input {
+.popup-form__input {
   width: 358px;
   height: 27.26px;
   border: none;
@@ -128,12 +128,12 @@
     font-size: 18px;
   }
 
-  .form__fieldset {
+  .popup-form__fieldset {
     width: 238px;
     margin: 76px auto 46px auto;
   }
 
-  .form__input {
+  .popup-form__input {
     width: 238px;
     height: 26px;
   }
