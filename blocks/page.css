@@ -1,21 +1,13 @@
 .page {
-  max-width: 1280px;
-  min-height: 1217px;
+  width: 100vw;
   margin: auto;
   background-color: black;
-  box-sizing: border-box;
   color: #ffffff;
+  box-sizing: border-box;
 }
 
 @media screen and (max-width: 1024px) {
-  .page {
-    min-height: 1400px;
-  }
 }
 
 @media screen and (max-width: 544px) {
-  .page {
-    max-width: 320px;
-    min-height: 2814px;
-  }
 }

@@ -6,6 +6,7 @@
   grid-template-columns: repeat(3, 282px);
   grid-template-rows: repeat(2, 361px);
   gap: 17px;
+  margin: auto;
 }
 
 .elements__card {
@@ -34,8 +35,9 @@
   font-family: Inter;
   font-weight: 900;
   font-size: 24px;
-  line-height: 100%;
-  letter-spacing: 0%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .elements__like-button {
@@ -61,7 +63,8 @@
 
 @media screen and (max-width: 544px) {
   .elements {
-    padding: 36px 19px 0;
+    padding: 36px 50px 0;
+    display: grid;
     grid-template-columns: 282px;
     grid-template-rows: repeat(6, 361px);
   }

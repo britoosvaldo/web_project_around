@@ -1,12 +1,16 @@
 .footer {
+  display: flex;
+  margin: auto;
+  max-width: 880px;
+  padding: 50px 0 50px;
+}
+
+.footer__copyright {
   width: 318px;
   height: 18px;
-  padding: 67px 0 0 200px;
   font-family: Inter;
   font-weight: 400;
   font-size: 18px;
-  line-height: 100%;
-  letter-spacing: 0%;
   color: #545454;
 }
 

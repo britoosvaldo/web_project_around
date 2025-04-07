@@ -8,16 +8,16 @@ closeButton.addEventListener("click", function () {
   document.querySelector(".popup").classList.remove("popup__opened");
 });
 
-let formElement = document.querySelector(".popup__form");
+const formElement = document.querySelector(".popup__form");
 
 function handleProfileFormSubmit(evt) {
   evt.preventDefault();
 
-  let nameInput = document.querySelector("#name").value;
-  let aboutInput = document.querySelector("#about").value;
+  const nameInput = document.querySelector("#name").value;
+  const aboutInput = document.querySelector("#about").value;
 
-  let userName = document.querySelector(".profile__name");
-  let userAbout = document.querySelector(".profile__about");
+  const userName = document.querySelector(".profile__name");
+  const userAbout = document.querySelector(".profile__about");
 
   userName.textContent = nameInput;
   userAbout.textContent = aboutInput;
