@@ -1,7 +1,7 @@
 .elements {
   max-width: 880px;
   min-height: 743px;
-  padding: 50px 200px 0;
+  padding-top: 50px;
   display: grid;
   grid-template-columns: repeat(3, 282px);
   grid-template-rows: repeat(2, 361px);
@@ -56,14 +56,19 @@
 
 @media screen and (max-width: 1024px) {
   .elements {
+    max-width: 581px;
+    min-height: 743px;
     grid-template-columns: repeat(2, 282px);
     grid-template-rows: repeat(3, 361px);
+    margin: auto;
   }
 }
 
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 720px) {
   .elements {
-    padding: 36px 50px 0;
+    max-width: 282px;
+    min-height: 743px;
+    padding-top: 50px;
     display: grid;
     grid-template-columns: 282px;
     grid-template-rows: repeat(6, 361px);

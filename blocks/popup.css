@@ -103,7 +103,7 @@
 @media screen and (max-width: 1024px) {
 }
 
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 720px) {
   .popup__close-icon {
     width: 26px;
     height: 26px;
@@ -131,7 +131,7 @@
 
   .popup__form-fieldset {
     width: 238px;
-    margin: 76px auto 46px auto;
+    margin: 76px auto 30px auto;
   }
 
   .popup__input {

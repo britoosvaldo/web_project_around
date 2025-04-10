@@ -2,7 +2,7 @@
   display: flex;
   width: 880px;
   height: 120px;
-  padding: 29px 200px 0;
+  padding-top: 29px;
   margin: auto;
 }
 
@@ -97,13 +97,13 @@
     width: 700px;
     height: 120px;
     padding: 29px 0;
-    margin: 0 auto;
+    margin: auto;
   }
 
   .profile__photo {
     width: 100px;
     height: 100px;
-    margin: auto 0;
+    margin: auto;
   }
 
   .profile__info {
@@ -127,12 +127,12 @@
   }
 }
 
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 720px) {
   .profile {
     flex-wrap: wrap;
     width: 282px;
     height: 286px;
-    padding: 42px 19px 0;
+    padding-top: 42px;
     justify-content: center;
   }
 
@@ -158,17 +158,15 @@
   }
 
   .profile__edit-button {
-    position: absolute;
-    right: 55px;
-    top: 260px;
+    display: flex;
     width: 18px;
     height: 18px;
     border: 1px solid #ffffff;
-    display: flex;
     align-items: center;
     justify-content: center;
     background-color: transparent;
     cursor: pointer;
+    margin-top: 25px;
   }
 
   .profile__edit-button-image {

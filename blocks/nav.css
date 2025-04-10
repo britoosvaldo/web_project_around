@@ -17,7 +17,7 @@
   }
 }
 
-@media screen and (max-width: 544px) {
+@media screen and (max-width: 720px) {
   .nav {
     max-width: 320px;
     min-height: 56px;
