@@ -44,9 +44,9 @@
           </button>
         </section>
 
-        <section class="popup">
+        <section class="edit-popup">
           <div class="popup__container">
-            <button type="button" class="popup__close-button">
+            <button type="button" class="edit-popup__close-button">
               <img
                 src="images/close-icon.png"
                 class="popup__close-icon"
@@ -54,7 +54,7 @@
               />
             </button>
             <h2 class="popup__container-title">Editar Perfil</h2>
-            <form class="popup__form">
+            <form class="edit-popup__form">
               <fieldset class="popup__form-fieldset">
                 <input
                   type="text"
@@ -72,6 +72,38 @@
                 />
               </fieldset>
               <button type="submit" class="popup__save-button">Salvar</button>
+            </form>
+          </div>
+        </section>
+
+        <section class="add-popup">
+          <div class="popup__container">
+            <button type="button" class="add-popup__close-button">
+              <img
+                src="images/close-icon.png"
+                class="popup__close-icon"
+                alt="Botão de fechar"
+              />
+            </button>
+            <h2 class="popup__container-title">Novo Local</h2>
+            <form class="add-popup__form">
+              <fieldset class="popup__form-fieldset">
+                <input
+                  type="text"
+                  class="popup__input"
+                  id="name"
+                  placeholder="Título"
+                  required
+                />
+                <input
+                  type="text"
+                  class="popup__input"
+                  id="about"
+                  placeholder="Link da imagem"
+                  required
+                />
+              </fieldset>
+              <button type="submit" class="popup__save-button">Criar</button>
             </form>
           </div>
         </section>

@@ -1,4 +1,17 @@
-.popup {
+.edit-popup {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.add-popup {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -20,7 +33,11 @@
   justify-content: center;
 }
 
-.popup__opened {
+.edit-popup__opened {
+  display: flex;
+}
+
+.add-popup__opened {
   display: flex;
 }
 
@@ -28,7 +45,16 @@
   display: none;
 }
 
-.popup__close-button {
+.edit-popup__close-button {
+  position: absolute;
+  background-color: transparent;
+  top: -45px;
+  left: 432px;
+  border: none;
+  cursor: pointer;
+}
+
+.add-popup__close-button {
   position: absolute;
   background-color: transparent;
   top: -45px;
