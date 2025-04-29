@@ -51,10 +51,6 @@
   opacity: 0.6;
 }
 
-.elements__change-like-button {
-  color: #000000;
-}
-
 .elements__delete-button {
   position: absolute;
   right: 10px;
