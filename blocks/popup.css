@@ -151,11 +151,8 @@
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
-  max-width: 75vw;
-  max-height: 75vh;
   position: fixed;
-  top: 0;
-  right: 0;
+  inset: 0;
   z-index: 2;
 }
 
@@ -165,21 +162,26 @@
 
 .image-popup__container {
   position: relative;
-  text-align: center;
+  background-color: #ffffff;
+  max-width: 75vw;
+  max-height: 75vh;
+  border-radius: 10px;
+  justify-content: center;
 }
 
 .image-popup__image {
-  max-width: 75vw;
-  max-height: 75vh;
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
   border-radius: 8px;
 }
 
-.image-popup__place {
+.image-popup__caption {
   color: #fff;
   margin-top: 10px;
-  font-size: 1.1rem;
+  font-family: Inter;
+  font-size: 12px;
 }
 
 .image-popup__close-button {
