@@ -96,6 +96,14 @@ initialCards.forEach(({ name, link }) => {
   likeButton.src = "images/like-button.png";
   likeButton.alt = "Curtir";
 
+  likeButton.addEventListener("click", () => {
+    if (likeButton.src.endsWith("liked-button.png")) {
+      likeButton.src = "./images/like-button.png";
+    } else {
+      likeButton.src = "./images/liked-button.png";
+    }
+  });
+
   description.appendChild(title);
   description.appendChild(likeButton);
 
