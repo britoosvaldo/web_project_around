@@ -75,7 +75,7 @@ initialCards.forEach(({ name, link }) => {
   card.classList.add("elements__card");
 
   const deleteButton = document.createElement("img");
-  deleteButton.src = "images/delete-button.png"; // coloque o caminho correto do ícone de lixeira
+  deleteButton.src = "images/delete-button.png";
   deleteButton.alt = "Deletar";
   deleteButton.classList.add("elements__delete-button");
 
@@ -93,7 +93,7 @@ initialCards.forEach(({ name, link }) => {
 
   const likeButton = document.createElement("img");
   likeButton.classList.add("elements__like-button");
-  likeButton.src = "images/like-button.png"; // coloque o caminho correto do ícone de like
+  likeButton.src = "images/like-button.png";
   likeButton.alt = "Curtir";
 
   description.appendChild(title);
