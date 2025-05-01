@@ -66,6 +66,48 @@
   opacity: 0.6;
 }
 
+.image-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.image-popup_opened {
+  display: flex;
+}
+
+.image-popup__container {
+  position: relative;
+  text-align: center;
+}
+
+.image-popup__image {
+  max-width: 75vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+}
+
+.image-popup__caption {
+  color: #fff;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+.image-popup__close-button {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1024px) {
   .elements {
     max-width: 581px;

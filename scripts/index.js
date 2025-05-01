@@ -79,10 +79,18 @@ initialCards.forEach(({ name, link }) => {
   deleteButton.alt = "Deletar";
   deleteButton.classList.add("elements__delete-button");
 
+  deleteButton.addEventListener("click", () => {
+    card.remove();
+  });
+
   const image = document.createElement("img");
   image.classList.add("elements__image");
   image.src = link;
   image.alt = name;
+
+  image.addEventListener("click", () => {
+    openImagePopup(link, name);
+  });
 
   const description = document.createElement("div");
   description.classList.add("elements__description");
@@ -112,4 +120,18 @@ initialCards.forEach(({ name, link }) => {
   card.appendChild(description);
 
   container.appendChild(card);
+});
+
+const imageButton = document.querySelectorAll(".elements__image");
+imageButton.forEach((img) => {
+  img.addEventListener("click", function () {
+    document.querySelector(".image-popup").classList.add("image-popup__opened");
+  });
+});
+
+const imageCloseButton = document.querySelector(".image-popup__close-button");
+imageCloseButton.addEventListener("click", function () {
+  document
+    .querySelector(".image-popup")
+    .classList.remove("image-popup__opened");
 });
