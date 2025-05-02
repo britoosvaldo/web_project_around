@@ -68,27 +68,6 @@ const initialCards = [
   },
 ];
 
-const container = document.querySelector(".elements");
-
-initialCards.forEach((cardData) => {
-  const card = createCard(cardData);
-  container.appendChild(card);
-});
-
-const imageButton = document.querySelectorAll(".elements__image");
-imageButton.forEach((img) => {
-  img.addEventListener("click", function () {
-    document.querySelector(".image-popup").classList.add("image-popup__opened");
-  });
-});
-
-const imageCloseButton = document.querySelector(".image-popup__close-button");
-imageCloseButton.addEventListener("click", function () {
-  document
-    .querySelector(".image-popup")
-    .classList.remove("image-popup__opened");
-});
-
 //criar novo card
 
 function createCard({ name, link }) {
@@ -169,4 +148,25 @@ createButton.addEventListener("click", (e) => {
 
   document.getElementById("name").value = "";
   document.getElementById("link").value = "";
+});
+
+const container = document.querySelector(".elements");
+
+initialCards.forEach((cardData) => {
+  const card = createCard(cardData);
+  container.appendChild(card);
+});
+
+const imageButton = document.querySelectorAll(".elements__image");
+imageButton.forEach((img) => {
+  img.addEventListener("click", function () {
+    document.querySelector(".image-popup").classList.add("image-popup__opened");
+  });
+});
+
+const imageCloseButton = document.querySelector(".image-popup__close-button");
+imageCloseButton.addEventListener("click", function () {
+  document
+    .querySelector(".image-popup")
+    .classList.remove("image-popup__opened");
 });
