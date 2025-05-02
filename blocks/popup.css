@@ -167,6 +167,7 @@
   max-height: 75vh;
   border-radius: 10px;
   justify-content: center;
+  padding: 0;
 }
 
 .image-popup__image {
@@ -175,10 +176,10 @@
   width: auto;
   height: auto;
   border-radius: 8px;
+  object-fit: contain;
 }
 
-.image-popup__caption {
-  color: #fff;
+.image-popup__place {
   margin-top: 10px;
   font-family: Inter;
   font-size: 12px;

@@ -31,6 +31,8 @@ formElement.addEventListener("submit", handleProfileFormSubmit);
 
 // add button
 
+const container = document.querySelector(".elements");
+
 const addButton = document.querySelector(".profile__add-button");
 addButton.addEventListener("click", function () {
   document.querySelector(".add-popup").classList.add("add-popup__opened");
@@ -150,22 +152,28 @@ createButton.addEventListener("click", (e) => {
   document.getElementById("link").value = "";
 });
 
-const container = document.querySelector(".elements");
-
 initialCards.forEach((cardData) => {
   const card = createCard(cardData);
   container.appendChild(card);
 });
 
-const imageButton = document.querySelectorAll(".elements__image");
-imageButton.forEach((img) => {
-  img.addEventListener("click", function () {
-    document.querySelector(".image-popup").classList.add("image-popup__opened");
-  });
-});
+// Função para abrir o popup com a imagem ampliada
+function openImagePopup(link, name) {
+  const popup = document.querySelector(".image-popup");
+  const popupImage = popup.querySelector(".image-popup__image");
+  const popupCaption = popup.querySelector(".image-popup__place");
 
+  popupImage.src = link;
+  popupImage.alt = name;
+  popupCaption.textContent = name;
+
+  popup.classList.add("image-popup__opened");
+}
+
+// Fechar o popup ao clicar no botão de fechar
 const imageCloseButton = document.querySelector(".image-popup__close-button");
-imageCloseButton.addEventListener("click", function () {
+
+imageCloseButton.addEventListener("click", () => {
   document
     .querySelector(".image-popup")
     .classList.remove("image-popup__opened");
