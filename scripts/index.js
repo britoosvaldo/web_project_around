@@ -43,6 +43,8 @@ addCloseButton.addEventListener("click", function () {
   document.querySelector(".add-popup").classList.remove("add-popup__opened");
 });
 
+// cards
+
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -70,7 +72,7 @@ const initialCards = [
   },
 ];
 
-//criar novo card
+//creat card
 
 function createCard({ name, link }) {
   const card = document.createElement("div");
@@ -157,7 +159,7 @@ initialCards.forEach((cardData) => {
   container.appendChild(card);
 });
 
-// Função para abrir o popup com a imagem ampliada
+// img popup
 function openImagePopup(link, name) {
   const popup = document.querySelector(".image-popup");
   const popupImage = popup.querySelector(".image-popup__image");
@@ -170,7 +172,6 @@ function openImagePopup(link, name) {
   popup.classList.add("image-popup__opened");
 }
 
-// Fechar o popup ao clicar no botão de fechar
 const imageCloseButton = document.querySelector(".image-popup__close-button");
 
 imageCloseButton.addEventListener("click", () => {
