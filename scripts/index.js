@@ -132,13 +132,6 @@ createButton.addEventListener("click", (e) => {
   const name = document.getElementById("name-title").value.trim();
   const link = document.getElementById("link").value.trim();
 
-  const existe = initialCards.some((card) => card.link === link);
-
-  if (existe) {
-    alert("Este link já foi adicionado.");
-    return;
-  }
-
   const newCard = { name, link };
 
   if (container.children.length >= 6) {
