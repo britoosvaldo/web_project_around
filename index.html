@@ -53,24 +53,39 @@
               />
             </button>
             <h2 class="popup__container-title">Editar Perfil</h2>
-            <form class="edit-popup__form">
+            <form class="edit-popup__form" novalidate>
               <fieldset class="popup__form-fieldset">
-                <input
-                  type="text"
-                  class="popup__input"
-                  id="name"
-                  placeholder="Jacques Cousteau"
-                  required
-                />
-                <input
-                  type="text"
-                  class="popup__input"
-                  id="about"
-                  placeholder="Explorador"
-                  required
-                />
+                <div class="popup__input-group">
+                  <input
+                    type="text"
+                    class="popup__input"
+                    id="name"
+                    name="name"
+                    placeholder="Jacques Cousteau"
+                    minlength="2"
+                    maxlength="40"
+                    required
+                  />
+                  <span class="popup__input-error" id="name-error"></span>
+                </div>
+
+                <div class="popup__input-group">
+                  <input
+                    type="text"
+                    class="popup__input"
+                    id="about"
+                    name="about"
+                    placeholder="Explorador"
+                    minlength="2"
+                    maxlength="200"
+                    required
+                  />
+                  <span class="popup__input-error" id="about-error"></span>
+                </div>
               </fieldset>
-              <button type="submit" class="popup__save-button">Salvar</button>
+              <button type="submit" class="popup__save-button" disabled>
+                Salvar
+              </button>
             </form>
           </div>
         </section>
@@ -92,13 +107,15 @@
                   class="popup__input"
                   id="name-title"
                   placeholder="Título"
+                  minlength="2"
+                  maxlength="30"
                   required
                 />
                 <input
-                  type="text"
+                  type="url"
                   class="popup__input"
                   id="link"
-                  placeholder="Link da imagem"
+                  placeholder="URL"
                   required
                 />
               </fieldset>

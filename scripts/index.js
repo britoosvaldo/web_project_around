@@ -72,7 +72,7 @@ const initialCards = [
   },
 ];
 
-//creat card
+//create card
 
 function createCard({ name, link }) {
   const card = document.createElement("div");
@@ -124,9 +124,9 @@ function createCard({ name, link }) {
   return card;
 }
 
-const createButton = document.getElementById("create");
+const addForm = document.querySelector(".add-popup__form");
 
-createButton.addEventListener("click", (e) => {
+addForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   const name = document.getElementById("name-title").value.trim();
@@ -143,7 +143,7 @@ createButton.addEventListener("click", (e) => {
 
   document.querySelector(".add-popup").classList.remove("add-popup__opened");
 
-  document.getElementById("name").value = "";
+  document.getElementById("name-title").value = "";
   document.getElementById("link").value = "";
 });
 
@@ -171,4 +171,62 @@ imageCloseButton.addEventListener("click", () => {
   document
     .querySelector(".image-popup")
     .classList.remove("image-popup__opened");
+});
+
+//
+const editForm = document.querySelector(".edit-popup__form");
+const saveButton = editForm.querySelector(".popup__save-button");
+const nameInput = editForm.querySelector("#name");
+const aboutInput = editForm.querySelector("#about");
+
+function showError(input) {
+  const errorSpan = document.getElementById(`${input.id}-error`);
+  errorSpan.textContent = input.validationMessage;
+}
+
+function hideError(input) {
+  const errorSpan = document.getElementById(`${input.id}-error`);
+  errorSpan.textContent = "";
+}
+
+function checkInputValidity(input) {
+  if (!input.validity.valid) {
+    showError(input);
+  } else {
+    hideError(input);
+  }
+}
+
+function toggleButtonState() {
+  if (editForm.checkValidity()) {
+    saveButton.disabled = false;
+  } else {
+    saveButton.disabled = true;
+  }
+}
+
+// Listeners
+[nameInput, aboutInput].forEach((input) => {
+  input.addEventListener("input", () => {
+    checkInputValidity(input);
+    toggleButtonState();
+  });
+});
+
+// Quando o popup for aberto, você pode resetar erros e o botão
+editButton.addEventListener("click", () => {
+  document.querySelector(".edit-popup").classList.add("edit-popup__opened");
+
+  // Resetar erros
+  hideError(nameInput);
+  hideError(aboutInput);
+
+  // Preencher campos com valores atuais (opcional)
+  nameInput.value = document.querySelector(".profile__name").textContent;
+  aboutInput.value = document.querySelector(".profile__about").textContent;
+
+  // Validar inputs e botão
+  checkInputValidity(nameInput);
+  checkInputValidity(aboutInput);
+  toggleButtonState();
 });
