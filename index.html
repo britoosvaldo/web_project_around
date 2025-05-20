@@ -102,22 +102,28 @@
             <h2 class="popup__container-title">Novo Local</h2>
             <form class="add-popup__form">
               <fieldset class="popup__form-fieldset">
-                <input
-                  type="text"
-                  class="popup__input"
-                  id="name-title"
-                  placeholder="Título"
-                  minlength="2"
-                  maxlength="30"
-                  required
-                />
-                <input
-                  type="url"
-                  class="popup__input"
-                  id="link"
-                  placeholder="URL"
-                  required
-                />
+                <div class="popup__input-group">
+                  <input
+                    type="text"
+                    class="popup__input"
+                    id="name-title"
+                    placeholder="Título"
+                    minlength="2"
+                    maxlength="30"
+                    required
+                  />
+                  <span class="popup__input-error" id="name-title-error"></span>
+                </div>
+                <div class="popup__input-group">
+                  <input
+                    type="url"
+                    class="popup__input"
+                    id="link"
+                    placeholder="URL"
+                    required
+                  />
+                  <span class="popup__input-error" id="link-error"></span>
+                </div>
               </fieldset>
               <button id="create" type="submit" class="popup__create-button">
                 Criar
@@ -147,5 +153,6 @@
       </footer>
     </div>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
 </html>

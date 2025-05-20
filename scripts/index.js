@@ -1,13 +1,36 @@
-// edit button
-
 const editButton = document.querySelector(".profile__edit-button");
+const editPopup = document.querySelector(".edit-popup");
+const editCloseButton = document.querySelector(".edit-popup__close-button");
+
 editButton.addEventListener("click", function () {
-  document.querySelector(".edit-popup").classList.add("edit-popup__opened");
+  editPopup.classList.add("edit-popup__opened");
+  document.addEventListener("keydown", handleEscClose);
+
+  document.getElementById("name-error").textContent = "";
+  document.getElementById("about-error").textContent = "";
+
+  toggleButtonState();
 });
 
-const editCloseButton = document.querySelector(".edit-popup__close-button");
 editCloseButton.addEventListener("click", function () {
-  document.querySelector(".edit-popup").classList.remove("edit-popup__opened");
+  closeEditPopup();
+});
+
+function closeEditPopup() {
+  editPopup.classList.remove("edit-popup__opened");
+  document.removeEventListener("keydown", handleEscClose);
+}
+
+function handleEscClose(evt) {
+  if (evt.key === "Escape") {
+    closeEditPopup();
+  }
+}
+
+editPopup.addEventListener("mousedown", (evt) => {
+  if (evt.target === editPopup) {
+    closeEditPopup();
+  }
 });
 
 const formElement = document.querySelector(".edit-popup__form");
@@ -24,7 +47,7 @@ function handleProfileFormSubmit(evt) {
   userName.textContent = nameInput;
   userAbout.textContent = aboutInput;
 
-  document.querySelector(".edit-popup").classList.remove("edit-popup__opened");
+  closeEditPopup();
 }
 
 formElement.addEventListener("submit", handleProfileFormSubmit);
@@ -34,14 +57,39 @@ formElement.addEventListener("submit", handleProfileFormSubmit);
 const container = document.querySelector(".elements");
 
 const addButton = document.querySelector(".profile__add-button");
+const addPopup = document.querySelector(".add-popup");
+const addCloseButton = document.querySelector(".add-popup__close-button");
+
 addButton.addEventListener("click", function () {
-  document.querySelector(".add-popup").classList.add("add-popup__opened");
+  addPopup.classList.add("add-popup__opened");
+  document.addEventListener("keydown", handleAddPopupEscClose);
+
+  document.getElementById("name-title-error").textContent = "";
+  document.getElementById("link-error").textContent = "";
+
+  toggleCreateButtonState();
 });
 
-const addCloseButton = document.querySelector(".add-popup__close-button");
 addCloseButton.addEventListener("click", function () {
-  document.querySelector(".add-popup").classList.remove("add-popup__opened");
+  closeAddPopup();
 });
+
+addPopup.addEventListener("mousedown", (evt) => {
+  if (evt.target === addPopup) {
+    closeAddPopup();
+  }
+});
+
+function closeAddPopup() {
+  addPopup.classList.remove("add-popup__opened");
+  document.removeEventListener("keydown", handleAddPopupEscClose);
+}
+
+function handleAddPopupEscClose(evt) {
+  if (evt.key === "Escape") {
+    closeAddPopup();
+  }
+}
 
 // cards
 
@@ -141,7 +189,7 @@ addForm.addEventListener("submit", (e) => {
   const cardElement = createCard(newCard);
   container.prepend(cardElement);
 
-  document.querySelector(".add-popup").classList.remove("add-popup__opened");
+  closeAddPopup();
 
   document.getElementById("name-title").value = "";
   document.getElementById("link").value = "";
@@ -153,6 +201,7 @@ initialCards.forEach((cardData) => {
 });
 
 // img popup
+
 function openImagePopup(link, name) {
   const popup = document.querySelector(".image-popup");
   const popupImage = popup.querySelector(".image-popup__image");
@@ -171,62 +220,4 @@ imageCloseButton.addEventListener("click", () => {
   document
     .querySelector(".image-popup")
     .classList.remove("image-popup__opened");
-});
-
-//
-const editForm = document.querySelector(".edit-popup__form");
-const saveButton = editForm.querySelector(".popup__save-button");
-const nameInput = editForm.querySelector("#name");
-const aboutInput = editForm.querySelector("#about");
-
-function showError(input) {
-  const errorSpan = document.getElementById(`${input.id}-error`);
-  errorSpan.textContent = input.validationMessage;
-}
-
-function hideError(input) {
-  const errorSpan = document.getElementById(`${input.id}-error`);
-  errorSpan.textContent = "";
-}
-
-function checkInputValidity(input) {
-  if (!input.validity.valid) {
-    showError(input);
-  } else {
-    hideError(input);
-  }
-}
-
-function toggleButtonState() {
-  if (editForm.checkValidity()) {
-    saveButton.disabled = false;
-  } else {
-    saveButton.disabled = true;
-  }
-}
-
-// Listeners
-[nameInput, aboutInput].forEach((input) => {
-  input.addEventListener("input", () => {
-    checkInputValidity(input);
-    toggleButtonState();
-  });
-});
-
-// Quando o popup for aberto, você pode resetar erros e o botão
-editButton.addEventListener("click", () => {
-  document.querySelector(".edit-popup").classList.add("edit-popup__opened");
-
-  // Resetar erros
-  hideError(nameInput);
-  hideError(aboutInput);
-
-  // Preencher campos com valores atuais (opcional)
-  nameInput.value = document.querySelector(".profile__name").textContent;
-  aboutInput.value = document.querySelector(".profile__about").textContent;
-
-  // Validar inputs e botão
-  checkInputValidity(nameInput);
-  checkInputValidity(aboutInput);
-  toggleButtonState();
 });
