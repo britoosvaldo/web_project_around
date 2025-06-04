@@ -152,7 +152,23 @@
         <p class="footer__copyright">&copy; 2024. Osvaldo Brito</p>
       </footer>
     </div>
-    <script src="scripts/index.js"></script>
-    <script src="scripts/validate.js"></script>
+
+    <template id="card-template">
+      <article class="elements__card">
+        <img src="#" alt="" class="elements__delete-button" />
+        <img src="#" alt="" class="elements__image" />
+        <div class="elements__description">
+          <h2 class="elements__text"></h2>
+          <img
+            src="images/like-button.png"
+            alt="Curtir"
+            class="elements__like-button"
+          />
+        </div>
+      </article>
+    </template>
+
+    <script type="module" src="scripts/index.js"></script>
+    <script src="scripts/FormValidator.js"></script>
   </body>
 </html>
