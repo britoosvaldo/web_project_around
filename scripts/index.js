@@ -1,6 +1,12 @@
+import "./utils.js";
 import { FormValidator } from "./FormValidator.js";
 import { Card } from "./card.js";
-import "./utils.js";
+import { Section } from "./Section.js";
+import { Popup } from "./Popup.js";
+
+const editPopup = new Popup(".edit-popup");
+editPopup.setEventListeners();
+editPopup.open();
 
 const validationConfig = {
   inputSelector: "input",
@@ -9,20 +15,16 @@ const validationConfig = {
 };
 
 const editForm = document.querySelector(".edit-popup__form");
+new FormValidator(validationConfig, editForm).enableValidation();
+
 const addForm = document.querySelector(".add-popup__form");
-
-const editFormValidator = new FormValidator(validationConfig, editForm);
-editFormValidator.enableValidation();
-
 const addFormConfig = {
   inputSelector: "input",
   submitButtonSelector: "#create",
   inactiveButtonClass: "popup__save-button--disabled",
 };
-const addFormValidator = new FormValidator(addFormConfig, addForm);
-addFormValidator.enableValidation();
+new FormValidator(addFormConfig, addForm).enableValidation();
 
-const container = document.querySelector(".elements");
 const initialCards = [
   {
     name: "Vale de Yosemite",
@@ -50,27 +52,31 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((cardData) => {
-  const cardInstance = new Card(cardData);
-  const cardElement = cardInstance.getCardElement();
-  container.appendChild(cardElement);
-});
+const cardsSection = new Section(
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      const card = new Card(cardData);
+      return card.getCardElement();
+    },
+  },
+  ".elements"
+);
 
-const addFormHandler = document.querySelector(".add-popup__form");
+cardsSection.renderItems();
 
-addFormHandler.addEventListener("submit", (e) => {
-  e.preventDefault();
-
+addForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
   const name = document.getElementById("name-title").value.trim();
   const link = document.getElementById("link").value.trim();
 
-  if (container.children.length >= 6) {
-    container.lastElementChild.remove();
+  const elems = document.querySelector(".elements");
+  if (elems.children.length >= 6) {
+    elems.lastElementChild.remove();
   }
 
-  const cardInstance = new Card({ name, link });
-  const cardElement = cardInstance.getCardElement();
-  container.prepend(cardElement);
+  const newCardEl = cardsSection._renderer({ name, link });
+  cardsSection.addItem(newCardEl);
 
   document.querySelector(".add-popup").classList.remove("add-popup__opened");
   document.removeEventListener("keydown", handleAddPopupEscClose);
