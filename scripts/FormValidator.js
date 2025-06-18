@@ -50,4 +50,12 @@ export class FormValidator {
     });
     this._setEventListeners();
   }
+
+  resetValidation() {
+    this._inputList.forEach((inputElement) => {
+      const errorSpan = document.getElementById(`${inputElement.id}-error`);
+      errorSpan.textContent = "";
+    });
+    this._toggleButtonState();
+  }
 }

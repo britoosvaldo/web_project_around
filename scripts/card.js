@@ -1,13 +1,13 @@
-import { openImagePopup } from "./utils.js";
-
 export class Card {
   #name;
   #link;
   #element;
+  #handleImageClick;
 
-  constructor({ name, link }) {
+  constructor({ name, link }, handleImageClick) {
     this.#name = name;
     this.#link = link;
+    this.#handleImageClick = handleImageClick;
     this.#element = this.#createElement();
   }
 
@@ -25,7 +25,11 @@ export class Card {
     image.classList.add("elements__image");
     image.src = this.#link;
     image.alt = this.#name;
-    image.addEventListener("click", () => this.#handleImageClick());
+    image.addEventListener("click", () => {
+      if (typeof this.#handleImageClick === "function") {
+        this.#handleImageClick(this.#name, this.#link);
+      }
+    });
 
     const description = document.createElement("div");
     description.classList.add("elements__description");
@@ -60,10 +64,6 @@ export class Card {
     likeBtn.src = isAlreadyLiked
       ? "images/like-button.png"
       : "images/liked-button.png";
-  }
-
-  #handleImageClick() {
-    openImagePopup(this.#link, this.#name);
   }
 
   getCardElement() {

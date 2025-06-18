@@ -1,8 +1,4 @@
 export class Section {
-  /**
-   * @param {{ items: Array, renderer: Function }} options
-   * @param {string} containerSelector
-   */
   constructor({ items, renderer }, containerSelector) {
     this._items = items;
     this._renderer = renderer;
@@ -15,10 +11,6 @@ export class Section {
       this._container.append(element);
     });
   }
-
-  /**
-   * @param {HTMLElement} element
-   */
 
   addItem(element) {
     this._container.prepend(element);
