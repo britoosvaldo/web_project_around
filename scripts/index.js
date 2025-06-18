@@ -3,6 +3,7 @@ import { Card } from "./card.js";
 import { Section } from "./Section.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
+import UserInfo from "./UserInfo.js";
 
 const imagePopup = new PopupWithImage(
   ".image-popup",
@@ -38,10 +39,12 @@ const initialCards = [
   },
 ];
 
+function handleCardClick(name, link) {
+  imagePopup.open({ name, link });
+}
+
 function createCard(cardData) {
-  return new Card(cardData, (name, link) => {
-    imagePopup.open({ name, link });
-  }).getCardElement();
+  return new Card(cardData, handleCardClick).getCardElement();
 }
 
 const cardsSection = new Section(
@@ -73,9 +76,13 @@ const addFormValidator = new FormValidator(
 );
 addFormValidator.enableValidation();
 
+const userInfo = new UserInfo({
+  nameSelector: ".profile__name",
+  aboutSelector: ".profile__about",
+});
+
 function handleEditFormSubmit(data) {
-  document.querySelector(".profile__name").textContent = data.name;
-  document.querySelector(".profile__about").textContent = data.about;
+  userInfo.setUserInfo(data);
   editProfilePopup.close();
 }
 
@@ -102,6 +109,7 @@ document
   .querySelector(".profile__edit-button")
   .addEventListener("click", () => {
     editFormValidator.resetValidation();
+
     editProfilePopup.open();
   });
 

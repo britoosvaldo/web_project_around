@@ -2,12 +2,12 @@ export class Card {
   #name;
   #link;
   #element;
-  #handleImageClick;
+  #handleCardClick;
 
-  constructor({ name, link }, handleImageClick) {
+  constructor({ name, link }, handleCardClick) {
     this.#name = name;
     this.#link = link;
-    this.#handleImageClick = handleImageClick;
+    this.#handleCardClick = handleCardClick;
     this.#element = this.#createElement();
   }
 
@@ -25,9 +25,10 @@ export class Card {
     image.classList.add("elements__image");
     image.src = this.#link;
     image.alt = this.#name;
+
     image.addEventListener("click", () => {
-      if (typeof this.#handleImageClick === "function") {
-        this.#handleImageClick(this.#name, this.#link);
+      if (typeof this.#handleCardClick === "function") {
+        this.#handleCardClick(this.#name, this.#link);
       }
     });
 
