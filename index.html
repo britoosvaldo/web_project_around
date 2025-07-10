@@ -20,11 +20,16 @@
 
       <main class="content">
         <section class="profile">
-          <img
-            src="images/profile-photo.png"
-            alt="Foto de perfil"
-            class="profile__photo"
-          />
+          <div class="profile__photo-container">
+            <img src="" alt="Foto de perfil" class="profile__photo" />
+            <button class="profile__photo-edit-btn" type="button">
+              <img
+                src="images/editPhoto-button.png"
+                alt="Editar foto"
+                class="profile__photo-edit-icon"
+              />
+            </button>
+          </div>
           <div class="profile__info">
             <h2 class="profile__name">Jacques Cousteau</h2>
             <button class="profile__edit-button">
@@ -149,11 +154,60 @@
             <p class="image-popup__place"></p>
           </div>
         </section>
+
+        <section class="confirm-popup popup">
+          <div class="confirm-popup__container">
+            <button type="button" class="confirm-popup__close-button">
+              <img
+                src="images/close-icon.png"
+                class="popup__close-icon"
+                alt="Botão de fechar"
+              />
+            </button>
+            <h2 class="popup__container-title">Tem certeza?</h2>
+            <form class="confirm-popup__form">
+              <button id="create" type="submit" class="popup__confirm-button">
+                Sim
+              </button>
+            </form>
+          </div>
+        </section>
       </main>
       <footer id="footer" class="footer">
         <p class="footer__copyright">&copy; 2025. Osvaldo Brito</p>
       </footer>
     </div>
+
+    <section class="avatar-popup popup">
+      <div class="avatar-popup__container">
+        <button type="button" class="avatar-popup__close-button">
+          <img
+            src="images/close-icon.png"
+            class="popup__close-icon"
+            alt="Botão de fechar"
+          />
+        </button>
+        <h2 class="popup__container-title">Alterar a Foto do Perfil</h2>
+        <form class="avatar-popup__form" novalidate>
+          <fieldset class="popup__form-fieldset">
+            <div class="popup__input-group">
+              <input
+                type="url"
+                class="popup__input"
+                id="avatar-link"
+                name="avatar-link"
+                placeholder="URL da nova foto"
+                required
+              />
+              <span class="popup__input-error" id="avatar-link-error"></span>
+            </div>
+          </fieldset>
+          <button type="submit" class="popup__save-button" disabled>
+            Salvar
+          </button>
+        </form>
+      </div>
+    </section>
 
     <template id="card-template">
       <article class="elements__card">

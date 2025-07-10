@@ -3,11 +3,24 @@ export class Card {
   #link;
   #element;
   #handleCardClick;
+  #handleDeleteClick;
+  #ownerId;
+  #currentUserId;
+  #_id;
 
-  constructor({ name, link }, handleCardClick) {
+  constructor(
+    { name, link, owner, _id, currentUserId },
+    handleCardClick,
+    handleDeleteClick
+  ) {
+    // Corrigido:
+    this.#ownerId = typeof owner === "object" ? owner._id : owner;
     this.#name = name;
     this.#link = link;
+    this.#_id = _id;
+    this.#currentUserId = currentUserId;
     this.#handleCardClick = handleCardClick;
+    this.#handleDeleteClick = handleDeleteClick;
     this.#element = this.#createElement();
   }
 
@@ -15,17 +28,22 @@ export class Card {
     const card = document.createElement("div");
     card.classList.add("elements__card");
 
-    const deleteButton = document.createElement("img");
-    deleteButton.src = "images/delete-button.png";
-    deleteButton.alt = "Deletar";
-    deleteButton.classList.add("elements__delete-button");
-    deleteButton.addEventListener("click", () => this.#handleDelete());
+    // Comparação segura (string, trim)
+    if (String(this.#ownerId).trim() === String(this.#currentUserId).trim()) {
+      const deleteButton = document.createElement("img");
+      deleteButton.src = "images/delete-button.png";
+      deleteButton.alt = "Deletar";
+      deleteButton.classList.add("elements__delete-button");
+      deleteButton.addEventListener("click", () => {
+        this.#handleDeleteClick(this);
+      });
+      card.appendChild(deleteButton);
+    }
 
     const image = document.createElement("img");
     image.classList.add("elements__image");
     image.src = this.#link;
     image.alt = this.#name;
-
     image.addEventListener("click", () => {
       if (typeof this.#handleCardClick === "function") {
         this.#handleCardClick(this.#name, this.#link);
@@ -48,15 +66,11 @@ export class Card {
     description.appendChild(title);
     description.appendChild(likeButton);
 
-    card.appendChild(deleteButton);
     card.appendChild(image);
     card.appendChild(description);
 
+    this.#element = card;
     return card;
-  }
-
-  #handleDelete() {
-    this.#element.remove();
   }
 
   #handleLike(evt) {
@@ -69,5 +83,13 @@ export class Card {
 
   getCardElement() {
     return this.#element;
+  }
+
+  removeCard() {
+    this.#element.remove();
+  }
+
+  getId() {
+    return this.#_id;
   }
 }

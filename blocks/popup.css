@@ -25,10 +25,30 @@
   justify-content: center;
 }
 
+.confirm-popup__container {
+  position: relative;
+  background-color: #ffffff;
+  width: 430px;
+  height: 181px;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+.avatar-popup__container {
+  position: relative;
+  background-color: #ffffff;
+  width: 430px;
+  height: 272px;
+  border-radius: 10px;
+  justify-content: center;
+}
+
 /* BOTÕES DE FECHAR */
 .edit-popup__close-button,
 .add-popup__close-button,
-.image-popup__close-button {
+.image-popup__close-button,
+.confirm-popup__close-button,
+.avatar-popup__close-button {
   position: absolute;
   background-color: transparent;
   border: none;
@@ -45,6 +65,16 @@
 .image-popup__close-button {
   top: -40px;
   right: -40px;
+}
+
+.confirm-popup__close-button {
+  top: -45px;
+  left: 432px;
+}
+
+.avatar-popup__close-button {
+  top: -45px;
+  left: 432px;
 }
 
 .popup__close-button:hover {
@@ -93,7 +123,8 @@
 }
 
 .popup__save-button,
-.popup__create-button {
+.popup__create-button,
+.popup__confirm-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,14 +140,17 @@
 }
 
 .popup__save-button:disabled,
-.popup__create-button:disabled {
+.popup__create-button:disabled,
+.popup__confirm-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
   opacity: 0.6;
 }
+
 .popup__save-button:hover {
   opacity: 0.8;
 }
+
 .popup__input-error {
   display: block;
   height: 18px;
