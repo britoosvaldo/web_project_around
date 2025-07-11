@@ -199,7 +199,7 @@ api
         cardsSection = new Section(
           {
             items: cards,
-            renderer: (cardData) => cardsSection.addItem(createCard(cardData)),
+            renderer: (cardData) => createCard(cardData), // <-- Só cria o elemento!
           },
           ".elements"
         );
