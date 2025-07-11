@@ -31,7 +31,7 @@ export class Card {
     // Comparação segura (string, trim)
     if (String(this.#ownerId).trim() === String(this.#currentUserId).trim()) {
       const deleteButton = document.createElement("img");
-      deleteButton.src = "../images/delete-button.png";
+      deleteButton.src = "images/delete-button.png";
       deleteButton.alt = "Deletar";
       deleteButton.classList.add("elements__delete-button");
       deleteButton.addEventListener("click", () => {
@@ -59,7 +59,7 @@ export class Card {
 
     const likeButton = document.createElement("img");
     likeButton.classList.add("elements__like-button");
-    likeButton.src = "../images/like-button.png";
+    likeButton.src = "images/like-button.png";
     likeButton.alt = "Curtir";
     likeButton.addEventListener("click", (evt) => this.#handleLike(evt));
 
@@ -77,8 +77,8 @@ export class Card {
     const likeBtn = evt.currentTarget;
     const isAlreadyLiked = likeBtn.src.endsWith("liked-button.png");
     likeBtn.src = isAlreadyLiked
-      ? "../images/like-button.png"
-      : "../images/liked-button.png";
+      ? "images/like-button.png"
+      : "images/liked-button.png";
   }
 
   getCardElement() {
